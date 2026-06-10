@@ -127,6 +127,28 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('switches to the scenario library from navigation', async () => {
+  const user = userEvent.setup();
+
+  render(<App />);
+
+  const navigation = screen.getByRole('navigation', {
+    name: /carebridge product sections/i,
+  });
+
+  await user.click(
+    within(navigation).getByRole('button', {
+      name: /scenarios/i,
+    }),
+  );
+
+  expect(
+    screen.getByRole('heading', {
+      name: /patient scenario library/i,
+    }),
+  ).toBeInTheDocument();
+});
+
   it('keeps the safety boundary visible', () => {
     render(<App />);
 

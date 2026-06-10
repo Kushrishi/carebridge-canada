@@ -12,6 +12,7 @@ import type { AppView } from './types/navigation';
 import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 import { ProvinceNavigator } from './components/ProvinceNavigator';
 import { ExportReadyPassport } from './components/ExportReadyPassport';
+import { SyntheticScenarioLibrary } from './components/SyntheticScenarioLibrary';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -60,6 +61,8 @@ function App() {
       {activeView === 'family' && <FamilyTranslationMode />}
 
       {activeView === 'province' && <ProvinceNavigator />}
+
+      {activeView === 'scenarios' && <SyntheticScenarioLibrary />}
 
       {activeView === 'timeline' && (
         <CareTimeline
@@ -212,6 +215,18 @@ function OverviewSection({
           </p>
           <button type="button" onClick={() => onViewChange('province')}>
             Open province guide
+          </button>
+        </article>
+        
+        <article>
+          <p className="eyebrow">Synthetic validation</p>
+          <h2>Scenario library added</h2>
+          <p>
+            Explore realistic synthetic patient journeys that show how
+            CareBridge reduces confusion between appointments.
+          </p>
+          <button type="button" onClick={() => onViewChange('scenarios')}>
+            Open scenarios
           </button>
         </article>
       </section>
