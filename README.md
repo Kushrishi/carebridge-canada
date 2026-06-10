@@ -1,173 +1,153 @@
 # CareBridge Canada
 
 ![CareBridge Canada CI](https://github.com/Kushrishi/carebridge-canada/actions/workflows/ci.yml/badge.svg)
+![Deploy CareBridge Canada](https://github.com/Kushrishi/carebridge-canada/actions/workflows/deploy.yml/badge.svg)
 
 **Live demo:** https://kushrishi.github.io/carebridge-canada/
 
 **Never lose the thread of your care.**
 
-CareBridge Canada is a patient-owned care continuity layer that turns appointments, instructions, referrals, medications, labs, symptoms, and family questions into a living action plan.
+CareBridge Canada is a patient-owned healthcare continuity platform concept that helps Canadians prepare for appointments, understand care instructions, track follow-ups, support family caregivers, and generate clinician-ready handoff summaries.
 
-It helps Canadians prepare before visits, understand after visits, follow through between visits, translate care for family, and generate useful handoffs for doctors, nurses, and pharmacists.
+This is not an AI doctor. It does not diagnose, prescribe, approve treatment, or replace clinicians, pharmacists, hospitals, emergency services, or provincial health portals.
 
-## Core thesis
+## Product thesis
 
-Health portals show information.
+Health portals show information. CareBridge turns information into action.
 
-**CareBridge turns information into action.**
+Many patients leave healthcare visits with fragmented instructions, pending referrals, unclear follow-ups, medication questions, language barriers, or family members who need to help but do not have a clear summary. CareBridge Canada is designed as a continuity layer that helps patients organize the thread of care between visits.
 
-Canadian healthcare can be fragmented across family doctors, walk-in clinics, specialists, pharmacists, labs, imaging, hospitals, provincial portals, referrals, discharge instructions, and family caregivers. Patients are often expected to remember and connect everything themselves.
+## Current MVP
 
-CareBridge is designed to help patients not fall through those gaps.
+The current MVP is a frontend prototype built with React, TypeScript, Vite, and automated tests. It uses synthetic data only.
 
-## What CareBridge is
+Implemented product sections:
 
-CareBridge is a patient-owned healthcare continuity platform focused on:
+* **Appointment preparation** — turns patient concerns, medication notes, and follow-up questions into a structured pre-visit summary.
+* **After-visit summary** — converts pasted synthetic instructions into plain-language next steps, questions, and evidence cards.
+* **Family translation mode** — creates caregiver-friendly summaries with simulated Punjabi, Hindi, French, and Urdu support.
+* **Province-aware navigator** — provides Canada-first preparation guidance for British Columbia, Alberta, Saskatchewan, Ontario, and Quebec.
+* **Action Graph timeline** — connects appointments, referrals, tests, prescriptions, and follow-up tasks.
+* **Follow-up tracker** — highlights unresolved care gaps and pending next steps.
+* **Care Passport** — generates patient-owned handoff summaries for doctors, pharmacists, and family caregivers.
 
-- appointment preparation
-- after-visit summaries
-- follow-up task tracking
-- referral, lab, imaging, and medication organization
-- doctor-ready and pharmacist-ready handoffs
-- family caregiver summaries
-- plain-language explanations
-- translated care checklists
-- province-aware Canadian healthcare navigation
+## Safety boundaries
 
-## What CareBridge is not
+CareBridge Canada is intentionally designed with strict healthcare safety boundaries.
 
-CareBridge is not:
+It does not:
 
-- an AI doctor
-- a diagnosis app
-- a treatment recommendation engine
-- a prescription approval bot
-- an emergency triage system
-- a replacement for doctors, nurses, pharmacists, hospitals, clinics, or provincial health portals
+* diagnose symptoms
+* recommend treatment
+* approve or change prescriptions
+* replace doctors, nurses, pharmacists, hospitals, clinics, or emergency services
+* claim integration with provincial portals
+* store real patient data in the MVP
 
-CareBridge supports understanding, preparation, communication, and follow-up. It does not replace clinical judgment.
+It does:
 
-## Main product loop
+* organize patient-owned notes
+* prepare questions for appointments
+* summarize instructions in plain language
+* track follow-up tasks
+* support caregiver communication
+* preserve original source text beside generated summaries
+* remind users to confirm medical decisions with qualified healthcare professionals
 
-CareBridge is built around the **Before / After / Between** care loop.
+## Why this matters
 
-### Before the visit
+Patients often fall through the cracks not because no information exists, but because the next step is unclear.
 
-Prepare:
+CareBridge focuses on continuity problems such as:
 
-- main concern
-- symptom timeline
-- medication list
-- questions
-- what changed since last visit
-- doctor-ready 30-second summary
+* “What did the doctor tell me to do?”
+* “What should I ask at my next appointment?”
+* “Was the referral actually sent?”
+* “Who is supposed to call next?”
+* “Did someone explain the lab or imaging result?”
+* “How do I help my parent understand their care plan?”
+* “What should I bring when I move provinces or see a new provider?”
 
-### After the visit
+## Technical architecture
 
-Convert instructions into:
+Current implementation:
 
-- plain-language summary
-- follow-up checklist
-- tasks with due dates
-- pharmacist questions
-- family/caregiver checklist
-- translated explanation
+* React
+* TypeScript
+* Vite
+* Vitest
+* React Testing Library
+* GitHub Actions CI
+* GitHub Pages deployment
 
-### Between visits
+Planned future architecture:
 
-Track:
+* Python FastAPI backend
+* SQLite or PostgreSQL persistence
+* retrieval-augmented generation over patient-owned notes
+* rules engine for follow-up detection and safety boundaries
+* translation support with original text preservation
+* exportable PDF care summaries
+* stronger accessibility and mobile PWA support
 
-- referrals
-- labs
-- imaging
-- medications
-- follow-up appointments
-- unresolved questions
-- symptom changes
-- care gaps
+## Project structure
 
-### Next visit
+```txt
+src/
+  components/        Product UI sections
+  data/              Synthetic demo care graph
+  test/              Test setup
+  types/             Shared TypeScript types
+  utils/             Deterministic care logic and summary generation
 
-Generate:
+docs/
+  action-graph.md
+  privacy-and-data-principles.md
+  problem-statement.md
+  product-thesis.md
+  roadmap.md
+  safety-boundaries.md
+  synthetic-personas.md
+  validation-plan.md
+```
 
-- what changed since last visit
-- completed tasks
-- pending tasks
-- unresolved questions
-- care-gap summary
-- updated Care Passport
+## Validation
 
-## Differentiation
+The project includes automated tests for:
 
-CareBridge is not a generic AI health chatbot.
+* app navigation
+* appointment preparation
+* after-visit summarization
+* family translation mode
+* province guidance
+* care timeline generation
+* follow-up tracking
+* Care Passport handoff summaries
 
-The unique idea is that CareBridge acts as a **patient-owned action layer between healthcare visits**.
+Run locally:
 
-The system turns fragmented healthcare moments into connected next steps.
+```bash
+npm install
+npm test
+npm run build
+npm run dev
+```
 
-## Core systems
+GitHub Actions automatically runs tests and builds the app on every push.
 
-### Care Passport
+## Status
 
-A patient-owned summary that can be shown to a doctor, pharmacist, specialist, walk-in clinic, emergency department, or family caregiver.
+CareBridge Canada is currently a portfolio-grade MVP prototype. The next development milestones are:
 
-### What Changed Since Last Visit?
+1. Add export-ready Care Passport summaries.
+2. Add stronger mobile PWA polish.
+3. Add province-specific disclaimer cards.
+4. Add synthetic user scenarios.
+5. Add backend persistence.
+6. Add RAG over patient-owned notes.
+7. Add PDF export.
+8. Add accessibility review and keyboard navigation improvements.
 
-A pre-appointment summary showing new symptoms, worsened symptoms, improved symptoms, medication changes, completed tasks, pending tasks, unanswered questions, and pending referrals/labs.
+## Disclaimer
 
-### Closed-Loop Follow-Up Tracker
-
-A tracker that asks whether care tasks were completed, are still pending, or need follow-up with a clinic, pharmacist, or healthcare provider.
-
-### CareBridge Action Graph
-
-The deeper system behind the app. It connects concerns, appointments, instructions, tasks, referrals, labs, imaging, medications, pharmacist questions, family summaries, translations, and province-specific navigation.
-
-### Care Gap Radar
-
-A safe unfinished-loop detector. It flags pending referrals, overdue labs, missing follow-ups, unresolved medication questions, untranslated instructions, and unanswered appointment questions.
-
-### Evidence Cards
-
-Every generated summary should show what it was based on, such as appointment notes, pasted instructions, saved tasks, or province guidance.
-
-## MVP scope
-
-The first version uses synthetic data only.
-
-The MVP will prove whether CareBridge can:
-
-- turn messy healthcare information into clear next steps
-- help patients prepare for appointments
-- track follow-ups
-- create doctor/pharmacist/family handoffs
-- support family translation workflows
-- identify unfinished care loops safely
-
-## Initial tech direction
-
-Phase 1:
-
-- React
-- TypeScript
-- Vite
-- mobile-first PWA design
-- synthetic data
-- local state
-- Vitest testing
-
-Later phases:
-
-- FastAPI backend
-- SQLite/PostgreSQL database
-- AI summarization
-- RAG over trusted guidance and user notes
-- encrypted user accounts
-- PDF export
-- iOS/Android via Expo React Native or native mobile rebuild
-
-## Safety principle
-
-CareBridge supports understanding, preparation, communication, and follow-up.
-
-It does not diagnose, treat, approve prescriptions, provide emergency triage, or replace clinical judgment.
+CareBridge Canada is a software prototype for healthcare continuity, organization, and communication support. It is not a medical device, clinical decision system, diagnostic tool, prescription tool, or substitute for professional medical advice.
