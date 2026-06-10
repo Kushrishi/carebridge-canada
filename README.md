@@ -444,6 +444,16 @@ Future startup-oriented milestones:
 
 ---
 
+## Copyright
+
+Copyright © 2026 Kush Rishi. All rights reserved.
+
+This repository is published as a portfolio and product-concept demonstration. No license is granted for copying, distributing, modifying, sublicensing, or commercializing the code, documentation, product concept, branding, design, or written materials without permission.
+
+CareBridge Canada, “Never lose the thread of your care,” and related product concepts are presented as part of the author’s portfolio and startup exploration.
+
+---
+
 ## Disclaimer
 
 CareBridge Canada is a software prototype for healthcare continuity, organization, and communication support.
