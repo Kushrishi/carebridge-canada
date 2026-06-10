@@ -90,6 +90,28 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('shows the care task evidence trace in the after-visit section', async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const navigation = screen.getByRole('navigation', {
+      name: /carebridge product sections/i,
+    });
+
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: /after visit/i,
+      }),
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /care task evidence trace/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it('switches to the Care Passport from navigation', async () => {
     const user = userEvent.setup();
 

@@ -16,6 +16,7 @@ import { SyntheticScenarioLibrary } from './components/SyntheticScenarioLibrary'
 import { TrustCenter } from './components/TrustCenter';
 import { CopyReadyCaregiverMessage } from './components/CopyReadyCaregiverMessage';
 import { SummaryGenerationExplainer } from './components/SummaryGenerationExplainer';
+import { CareTaskEvidenceTrace } from './components/CareTaskEvidenceTrace';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -65,7 +66,12 @@ function App() {
 
           {activeView === 'before' && <AppointmentPrep />}
 
-          {activeView === 'after' && <AfterVisitSummary />}
+          {activeView === 'after' && (
+            <>
+              <AfterVisitSummary />
+              <CareTaskEvidenceTrace />
+            </>
+          )}
 
           {activeView === 'family' && <FamilyTranslationMode />}
 
