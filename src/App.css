@@ -269,3 +269,159 @@ button {
     flex-direction: column;
   }
 }
+
+.section-heading p {
+  margin-bottom: 0;
+}
+
+.timeline-section,
+.tracker-panel {
+  border: 1px solid #dbe7ef;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 45px rgba(8, 23, 42, 0.07);
+}
+
+.timeline-section {
+  margin-bottom: 24px;
+  padding: 28px;
+}
+
+.timeline-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #e3edf4;
+  border-radius: 18px;
+  background: #f8fbfd;
+}
+
+.timeline-marker {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: #59c2b3;
+  box-shadow: 0 0 0 5px rgba(89, 194, 179, 0.18);
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.timeline-meta span:not(.status-badge) {
+  color: #267467;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.timeline-item h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.timeline-item p {
+  margin-bottom: 0;
+}
+
+.tracker-panel {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.tracker-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.tracker-summary div {
+  border: 1px solid #e3edf4;
+  border-radius: 18px;
+  padding: 14px;
+  background: #f8fbfd;
+}
+
+.tracker-summary strong {
+  display: block;
+  color: #102033;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.tracker-summary span {
+  display: block;
+  margin-top: 5px;
+  color: #526477;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tracker-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-button {
+  padding: 9px 12px;
+  color: #17324c;
+  background: #edf5fa;
+  border: 1px solid #d6e5ef;
+  font-size: 0.86rem;
+}
+
+.filter-button.active {
+  color: white;
+  background: #17324c;
+  border-color: #17324c;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: capitalize;
+}
+
+.status-badge--pending {
+  color: #17324c;
+  background: #e7f2fb;
+}
+
+.status-badge--needs-follow-up {
+  color: #6a3d00;
+  background: #fff2cf;
+}
+
+.status-badge--completed {
+  color: #1d4f45;
+  background: #def8f1;
+}
+
+.task-question {
+  margin-top: 8px;
+  color: #63758a;
+  font-size: 0.88rem;
+}

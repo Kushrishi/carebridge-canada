@@ -1,4 +1,6 @@
 import './App.css';
+import { CareTimeline } from './components/CareTimeline';
+import { FollowUpTracker } from './components/FollowUpTracker';
 import { demoCarePassport } from './data/demoCareGraph';
 import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 
@@ -63,6 +65,11 @@ function App() {
         </article>
       </section>
 
+      <CareTimeline
+        appointments={demoCarePassport.recentAppointments}
+        tasks={demoCarePassport.followUpTasks}
+      />
+
       <section className="dashboard-section">
         <div>
           <p className="eyebrow">Care Gap Radar</p>
@@ -85,18 +92,7 @@ function App() {
           </div>
         </div>
 
-        <div className="task-list" aria-label="Follow-up tasks">
-          {demoCarePassport.followUpTasks.map((task) => (
-            <article className="task-card" key={task.id}>
-              <div>
-                <span>{task.category}</span>
-                <h3>{task.title}</h3>
-                {task.dueDate && <p>Due: {task.dueDate}</p>}
-              </div>
-              <strong>{task.status.replaceAll('-', ' ')}</strong>
-            </article>
-          ))}
-        </div>
+        <FollowUpTracker tasks={demoCarePassport.followUpTasks} />
       </section>
 
       <section className="passport-section">
