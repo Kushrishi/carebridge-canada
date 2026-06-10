@@ -95,7 +95,7 @@ export function CarePassportSummary({
             so providers do not need to create an account.
           </p>
         </div>
-        <button type="button">PDF export planned</button>
+        <span className="export-status-pill">PDF export planned</span>
       </article>
     </section>
   );
