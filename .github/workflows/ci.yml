@@ -1,4 +1,4 @@
-﻿name: CareBridge Canada CI
+name: CareBridge Canada CI
 
 on:
   push:
