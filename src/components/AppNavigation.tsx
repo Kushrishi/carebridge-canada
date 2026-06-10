@@ -32,6 +32,13 @@ const appViews: AppViewConfig[] = [
     label: 'Family translation',
     description: 'Caregiver checklist and translated support',
   },
+
+    {
+    id: 'province',
+    label: 'Province guide',
+    description: 'Canada-first health system navigation',
+  },
+  
   {
     id: 'timeline',
     label: 'Action Graph',

@@ -10,6 +10,7 @@ import { FollowUpTracker } from './components/FollowUpTracker';
 import { demoCarePassport } from './data/demoCareGraph';
 import type { AppView } from './types/navigation';
 import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
+import { ProvinceNavigator } from './components/ProvinceNavigator';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -56,6 +57,8 @@ function App() {
       {activeView === 'after' && <AfterVisitSummary />}
 
       {activeView === 'family' && <FamilyTranslationMode />}
+
+      {activeView === 'province' && <ProvinceNavigator />}
 
       {activeView === 'timeline' && (
         <CareTimeline
@@ -193,6 +196,18 @@ function OverviewSection({
           </p>
           <button type="button" onClick={() => onViewChange('passport')}>
             Open Care Passport
+          </button>
+        </article>
+
+        <article>
+          <p className="eyebrow">Canada-first navigator</p>
+          <h2>Province guidance ready</h2>
+          <p>
+            Generate province-aware preparation guidance without connecting to
+            provincial portals or storing real health card information.
+          </p>
+          <button type="button" onClick={() => onViewChange('province')}>
+            Open province guide
           </button>
         </article>
       </section>

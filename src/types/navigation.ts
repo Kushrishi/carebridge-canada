@@ -3,6 +3,7 @@ export type AppView =
   | 'before'
   | 'after'
   | 'family'
+  | 'province'
   | 'timeline'
   | 'follow-up'
   | 'passport';
