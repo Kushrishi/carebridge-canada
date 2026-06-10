@@ -2,6 +2,8 @@
 
 ![CareBridge Canada CI](https://github.com/Kushrishi/carebridge-canada/actions/workflows/ci.yml/badge.svg)
 
+**Live demo:** GitHub Pages deployment in progress.
+
 **Never lose the thread of your care.**
 
 CareBridge Canada is a patient-owned care continuity layer that turns appointments, instructions, referrals, medications, labs, symptoms, and family questions into a living action plan.
