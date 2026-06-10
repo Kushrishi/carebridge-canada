@@ -20,11 +20,16 @@ const defaultPrepInput: AppointmentPrepInput = {
 export function AppointmentPrep() {
   const [prepInput, setPrepInput] =
     useState<AppointmentPrepInput>(defaultPrepInput);
-  const [hasGeneratedSummary, setHasGeneratedSummary] = useState(true);
+  const [submittedPrepInput, setSubmittedPrepInput] =
+    useState<AppointmentPrepInput>(defaultPrepInput);
+  const [hasDraftChanges, setHasDraftChanges] = useState(false);
+  const [generationStatus, setGenerationStatus] = useState<
+    'sample' | 'generated'
+  >('sample');
 
   const summary = useMemo(
-    () => createAppointmentPrepSummary(prepInput),
-    [prepInput],
+    () => createAppointmentPrepSummary(submittedPrepInput),
+    [submittedPrepInput],
   );
 
   function updateField(field: keyof AppointmentPrepInput, value: string) {
@@ -32,10 +37,21 @@ export function AppointmentPrep() {
       ...currentInput,
       [field]: value,
     }));
+    setHasDraftChanges(true);
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmittedPrepInput(prepInput);
+    setHasDraftChanges(false);
+    setGenerationStatus('generated');
   }
 
   return (
-    <section className="appointment-prep-section" aria-labelledby="appointment-prep-title">
+    <section
+      className="appointment-prep-section"
+      aria-labelledby="appointment-prep-title"
+    >
       <div className="section-heading">
         <p className="eyebrow">Before the visit</p>
         <h2 id="appointment-prep-title">Appointment preparation</h2>
@@ -46,13 +62,7 @@ export function AppointmentPrep() {
       </div>
 
       <div className="appointment-prep-grid">
-        <form
-          className="prep-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            setHasGeneratedSummary(true);
-          }}
-        >
+        <form className="prep-form" onSubmit={handleSubmit}>
           <label>
             Appointment type
             <input
@@ -114,51 +124,60 @@ export function AppointmentPrep() {
           </label>
 
           <button type="submit">Generate appointment summary</button>
+
+          <p className="form-hint" role="status">
+            {hasDraftChanges
+              ? 'Changes ready. Generate again to refresh the appointment summary.'
+              : generationStatus === 'generated'
+                ? 'Appointment summary generated from the current details.'
+                : 'Sample appointment summary shown from synthetic demo details.'}
+          </p>
         </form>
 
-        {hasGeneratedSummary && (
-          <div className="prep-summary" aria-label="Generated appointment preparation summary">
-            <article className="summary-card summary-card--primary">
-              <p className="eyebrow">30-second doctor summary</p>
-              <p>{summary.thirtySecondSummary}</p>
-            </article>
+        <div
+          className="prep-summary"
+          aria-label="Generated appointment preparation summary"
+        >
+          <article className="summary-card summary-card--primary">
+            <p className="eyebrow">30-second doctor summary</p>
+            <p>{summary.thirtySecondSummary}</p>
+          </article>
 
-            <SummaryList
-              title="Symptom timeline"
-              items={summary.symptomTimelineItems}
-              emptyLabel="No symptom timeline added yet."
-            />
+          <SummaryList
+            title="Symptom timeline"
+            items={summary.symptomTimelineItems}
+            emptyLabel="No symptom timeline added yet."
+          />
 
-            <SummaryList
-              title="What changed since last visit?"
-              items={summary.recentChangeItems}
-              emptyLabel="No changes added yet."
-            />
+          <SummaryList
+            title="What changed since last visit?"
+            items={summary.recentChangeItems}
+            emptyLabel="No changes added yet."
+          />
 
-            <SummaryList
-              title="Medication notes"
-              items={summary.medicationNotes}
-              emptyLabel="No medication notes added yet."
-            />
+          <SummaryList
+            title="Medication notes"
+            items={summary.medicationNotes}
+            emptyLabel="No medication notes added yet."
+          />
 
-            <SummaryList
-              title="Questions to ask"
-              items={summary.questionsForClinician}
-              emptyLabel="No questions added yet."
-            />
+          <SummaryList
+            title="Questions to ask"
+            items={summary.questionsForClinician}
+            emptyLabel="No questions added yet."
+          />
 
-            <SummaryList
-              title="Do not forget"
-              items={summary.notToForget}
-              emptyLabel="No reminder items generated."
-            />
+          <SummaryList
+            title="Do not forget"
+            items={summary.notToForget}
+            emptyLabel="No reminder items generated."
+          />
 
-            <article className="summary-card safety-summary">
-              <h3>Safety boundary</h3>
-              <p>{summary.safetyReminder}</p>
-            </article>
-          </div>
-        )}
+          <article className="summary-card safety-summary">
+            <h3>Safety boundary</h3>
+            <p>{summary.safetyReminder}</p>
+          </article>
+        </div>
       </div>
     </section>
   );

@@ -15,11 +15,16 @@ export function AfterVisitSummary() {
   const [afterVisitInput, setAfterVisitInput] = useState<AfterVisitInput>(
     defaultAfterVisitInput,
   );
-  const [hasGeneratedSummary, setHasGeneratedSummary] = useState(true);
+  const [submittedAfterVisitInput, setSubmittedAfterVisitInput] =
+    useState<AfterVisitInput>(defaultAfterVisitInput);
+  const [hasDraftChanges, setHasDraftChanges] = useState(false);
+  const [generationStatus, setGenerationStatus] = useState<
+    'sample' | 'generated'
+  >('sample');
 
   const summary = useMemo(
-    () => createAfterVisitSummary(afterVisitInput),
-    [afterVisitInput],
+    () => createAfterVisitSummary(submittedAfterVisitInput),
+    [submittedAfterVisitInput],
   );
 
   function updateField(field: keyof AfterVisitInput, value: string) {
@@ -27,6 +32,14 @@ export function AfterVisitSummary() {
       ...currentInput,
       [field]: value,
     }));
+    setHasDraftChanges(true);
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmittedAfterVisitInput(afterVisitInput);
+    setHasDraftChanges(false);
+    setGenerationStatus('generated');
   }
 
   return (
@@ -41,13 +54,7 @@ export function AfterVisitSummary() {
       </div>
 
       <div className="after-visit-grid">
-        <form
-          className="after-visit-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            setHasGeneratedSummary(true);
-          }}
-        >
+        <form className="after-visit-form" onSubmit={handleSubmit}>
           <label>
             Source label
             <input
@@ -79,68 +86,74 @@ export function AfterVisitSummary() {
           </label>
 
           <button type="submit">Generate after-visit plan</button>
+
+          <p className="form-hint" role="status">
+            {hasDraftChanges
+              ? 'Changes ready. Generate again to refresh the after-visit plan.'
+              : generationStatus === 'generated'
+                ? 'After-visit plan generated from the current synthetic instructions.'
+                : 'Sample after-visit plan shown from synthetic demo instructions.'}
+          </p>
         </form>
 
-        {hasGeneratedSummary && (
-          <div
-            className="after-visit-output"
-            aria-label="Generated after-visit summary"
-          >
-            <article className="summary-card summary-card--primary">
-              <p className="eyebrow">Plain-language summary</p>
-              <p>{summary.plainLanguageSummary}</p>
-            </article>
+        <div
+          className="after-visit-output"
+          aria-label="Generated after-visit summary"
+        >
+          <article className="summary-card summary-card--primary">
+            <p className="eyebrow">Plain-language summary</p>
+            <p>{summary.plainLanguageSummary}</p>
+          </article>
 
-            <article className="summary-card">
-              <h3>Extracted instructions</h3>
-              <ul>
-                {summary.extractedInstructions.map((instruction) => (
-                  <li key={instruction}>{instruction}</li>
-                ))}
-              </ul>
-            </article>
+          <article className="summary-card">
+            <h3>Extracted instructions</h3>
+            <ul>
+              {summary.extractedInstructions.map((instruction) => (
+                <li key={instruction}>{instruction}</li>
+              ))}
+            </ul>
+          </article>
 
-            <article className="summary-card">
-              <h3>Generated follow-up checklist</h3>
-              <div className="generated-task-list">
-                {summary.followUpTasks.map((task) => (
-                  <div className="generated-task" key={task.id}>
-                    <strong>{task.title}</strong>
-                    <span>{task.category}</span>
-                    <p>Based on: {task.reason}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
+          <article className="summary-card">
+            <h3>Generated follow-up checklist</h3>
+            <div className="generated-task-list">
+              {summary.followUpTasks.map((task) => (
+                <div className="generated-task" key={task.id}>
+                  <strong>{task.title}</strong>
+                  <span>{task.category}</span>
+                  <p>Based on: {task.reason}</p>
+                </div>
+              ))}
+            </div>
+          </article>
 
-            <article className="summary-card">
-              <h3>Questions to ask</h3>
-              <ul>
-                {summary.questionsToAsk.map((question) => (
-                  <li key={question}>{question}</li>
-                ))}
-              </ul>
-            </article>
+          <article className="summary-card">
+            <h3>Questions to ask</h3>
+            <ul>
+              {summary.questionsToAsk.map((question) => (
+                <li key={question}>{question}</li>
+              ))}
+            </ul>
+          </article>
 
-            <article className="summary-card">
-              <h3>Evidence Cards</h3>
-              <div className="generated-task-list">
-                {summary.evidenceCards.map((card) => (
-                  <div className="generated-task" key={card.id}>
-                    <strong>{card.label}</strong>
-                    <span>{card.sourceType.replaceAll('-', ' ')}</span>
-                    <p>{card.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
+          <article className="summary-card">
+            <h3>Evidence Cards</h3>
+            <div className="generated-task-list">
+              {summary.evidenceCards.map((card) => (
+                <div className="generated-task" key={card.id}>
+                  <strong>{card.label}</strong>
+                  <span>{card.sourceType.replaceAll('-', ' ')}</span>
+                  <p>{card.detail}</p>
+                </div>
+              ))}
+            </div>
+          </article>
 
-            <article className="summary-card safety-summary">
-              <h3>Safety boundary</h3>
-              <p>{summary.safetyReminder}</p>
-            </article>
-          </div>
-        )}
+          <article className="summary-card safety-summary">
+            <h3>Safety boundary</h3>
+            <p>{summary.safetyReminder}</p>
+          </article>
+        </div>
       </div>
     </section>
   );
