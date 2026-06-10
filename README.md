@@ -35,6 +35,26 @@ The MVP does not use real patient data, real provincial portal data, a backend, 
 
 ---
 
+## Screenshots
+
+### Overview dashboard
+
+![CareBridge Canada overview dashboard](docs/assets/carebridge-overview.png)
+
+### After-visit summary and evidence trace
+
+![CareBridge Canada after-visit workflow](docs/assets/carebridge-after-visit.png)
+
+### Follow-up tracker and Care Gap Radar
+
+![CareBridge Canada follow-up tracker](docs/assets/carebridge-follow-up.png)
+
+### Copyable Care Passport
+
+![CareBridge Canada copyable Care Passport](docs/assets/carebridge-copyable-passport.png)
+
+---
+
 ## Implemented features
 
 ### Appointment preparation
@@ -294,6 +314,7 @@ src/
   utils/             Deterministic care logic, summaries, rules, and task generation
 
 docs/
+  assets/            README screenshots and visual project assets
   action-graph.md
   architecture.md
   privacy-and-data-principles.md
@@ -403,12 +424,11 @@ The product should not start as a diagnosis app, symptom checker, treatment engi
 
 Near-term project milestones:
 
-1. Final v1.0 polish
-2. Add final screenshots to the README
-3. Add stronger visual polish for non-clickable “coming soon” badges
-4. Review native dropdown styling on mobile and desktop
-5. Final accessibility and mobile pass
-6. Tag `v1.0.0`
+1. Continue mobile and accessibility polish
+2. Improve visual polish for future “coming soon” states
+3. Explore a full-stack synthetic backend prototype
+4. Prototype source-grounded AI/RAG using synthetic notes only
+5. Prepare for lightweight user discovery and startup validation
 
 Future startup-oriented milestones:
 
