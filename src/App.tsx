@@ -6,6 +6,7 @@ import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 import { AppointmentPrep } from './components/AppointmentPrep';
 import { AfterVisitSummary } from './components/AfterVisitSummary';
 import { FamilyTranslationMode } from './components/FamilyTranslationMode';
+import { CarePassportSummary } from './components/CarePassportSummary';
 
 function App() {
     const careGaps = createCareGaps(demoCarePassport.followUpTasks);
@@ -104,27 +105,7 @@ function App() {
                 <FollowUpTracker tasks={demoCarePassport.followUpTasks} />
             </section>
 
-            <section className="passport-section">
-                <div>
-                    <p className="eyebrow">Care Passport preview</p>
-                    <h2>Doctor-ready handoff</h2>
-                    <p>
-                        Main concern:{' '}
-                        <strong>{demoCarePassport.mainConcerns[0]?.title}</strong>
-                    </p>
-                    <p>{demoCarePassport.mainConcerns[0]?.description}</p>
-                </div>
-
-                <div className="evidence-panel">
-                    <h3>Evidence Cards</h3>
-                    {demoCarePassport.evidenceCards.map((card) => (
-                        <article key={card.id}>
-                            <strong>{card.label}</strong>
-                            <p>{card.detail}</p>
-                        </article>
-                    ))}
-                </div>
-            </section>
+            <CarePassportSummary carePassport={demoCarePassport} />
 
             <section className="safety-card">
                 <h2>Safety principle</h2>
