@@ -122,6 +122,28 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('shows the copy-ready caregiver message in the passport section', async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const navigation = screen.getByRole('navigation', {
+      name: /carebridge product sections/i,
+    });
+
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: /care passport/i,
+      }),
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /copy-ready caregiver message/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it('switches to the province guide from navigation', async () => {
     const user = userEvent.setup();
 

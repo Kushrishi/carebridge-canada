@@ -14,6 +14,7 @@ import { ProvinceNavigator } from './components/ProvinceNavigator';
 import { ExportReadyPassport } from './components/ExportReadyPassport';
 import { SyntheticScenarioLibrary } from './components/SyntheticScenarioLibrary';
 import { TrustCenter } from './components/TrustCenter';
+import { CopyReadyCaregiverMessage } from './components/CopyReadyCaregiverMessage';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -111,6 +112,7 @@ function App() {
             <>
               <CarePassportSummary carePassport={demoCarePassport} />
               <ExportReadyPassport />
+              <CopyReadyCaregiverMessage />
             </>
           )}
 

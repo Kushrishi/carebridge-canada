@@ -1350,3 +1350,45 @@ a:focus-visible {
     transform: none;
   }
 }
+
+.caregiver-message-section {
+  margin-bottom: 24px;
+  padding: 28px;
+  border: 1px solid #dbe7ef;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 45px rgba(8, 23, 42, 0.07);
+}
+
+.caregiver-message-grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.caregiver-message-preview {
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid #d6e5ef;
+  border-radius: 18px;
+  padding: 22px;
+  background: #f8fbfd;
+}
+
+.caregiver-message-preview pre {
+  margin: 0;
+  color: #17324c;
+  font-family:
+    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 820px) {
+  .caregiver-message-grid {
+    grid-template-columns: 1fr;
+  }
+}
