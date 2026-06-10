@@ -83,6 +83,50 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('shows the export-ready Care Passport in the passport section', async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const navigation = screen.getByRole('navigation', {
+      name: /carebridge product sections/i,
+    });
+
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: /care passport/i,
+      }),
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /copyable care passport/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it('switches to the province guide from navigation', async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const navigation = screen.getByRole('navigation', {
+      name: /carebridge product sections/i,
+    });
+
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: /province guide/i,
+      }),
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /province-aware healthcare navigator/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it('keeps the safety boundary visible', () => {
     render(<App />);
 

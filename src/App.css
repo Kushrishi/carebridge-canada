@@ -1025,3 +1025,95 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.export-passport-section {
+  margin-bottom: 24px;
+  padding: 28px;
+  border: 1px solid #dbe7ef;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 45px rgba(8, 23, 42, 0.07);
+}
+
+.export-passport-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.export-passport-preview {
+  border: 1px solid #dbe7ef;
+  border-radius: 22px;
+  padding: 18px;
+  background: #eef5f8;
+}
+
+.export-passport-paper {
+  max-height: 560px;
+  overflow: auto;
+  border: 1px solid #d6e5ef;
+  border-radius: 18px;
+  padding: 22px;
+  background: white;
+}
+
+.export-passport-paper pre {
+  margin: 0;
+  color: #17324c;
+  font-family:
+    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.copy-status {
+  margin-top: 8px;
+  color: #1d6f61;
+  font-weight: 800;
+}
+
+.copy-status--error {
+  color: #9b2c2c;
+}
+
+@media print {
+  .hero,
+  .app-navigation,
+  .safety-card,
+  .summary-card--primary button,
+  .copy-status {
+    display: none;
+  }
+
+  .app-shell {
+    padding: 0;
+    background: white;
+  }
+
+  .export-passport-section,
+  .export-passport-preview,
+  .export-passport-paper {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: white;
+  }
+
+  .export-passport-grid {
+    display: block;
+  }
+
+  .export-passport-paper {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 820px) {
+  .export-passport-grid {
+    grid-template-columns: 1fr;
+  }
+}

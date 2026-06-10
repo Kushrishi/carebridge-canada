@@ -11,6 +11,7 @@ import { demoCarePassport } from './data/demoCareGraph';
 import type { AppView } from './types/navigation';
 import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 import { ProvinceNavigator } from './components/ProvinceNavigator';
+import { ExportReadyPassport } from './components/ExportReadyPassport';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -95,7 +96,10 @@ function App() {
       )}
 
       {activeView === 'passport' && (
-        <CarePassportSummary carePassport={demoCarePassport} />
+        <>
+          <CarePassportSummary carePassport={demoCarePassport} />
+          <ExportReadyPassport />
+        </>
       )}
 
       <section className="safety-card">
