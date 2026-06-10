@@ -17,6 +17,7 @@ import { TrustCenter } from './components/TrustCenter';
 import { CopyReadyCaregiverMessage } from './components/CopyReadyCaregiverMessage';
 import { SummaryGenerationExplainer } from './components/SummaryGenerationExplainer';
 import { CareTaskEvidenceTrace } from './components/CareTaskEvidenceTrace';
+import { SafetyRulesPanel } from './components/SafetyRulesPanel';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -79,7 +80,12 @@ function App() {
 
           {activeView === 'scenarios' && <SyntheticScenarioLibrary />}
 
-          {activeView === 'trust' && <TrustCenter />}
+          {activeView === 'trust' && (
+            <>
+              <TrustCenter />
+              <SafetyRulesPanel />
+            </>
+          )}
 
           {activeView === 'timeline' && (
             <CareTimeline

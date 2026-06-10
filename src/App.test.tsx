@@ -243,6 +243,28 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('shows the safety rules engine in the trust section', async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const navigation = screen.getByRole('navigation', {
+      name: /carebridge product sections/i,
+    });
+
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: /trust center/i,
+      }),
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /safety rules engine/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it('keeps the safety boundary visible', () => {
     render(<App />);
 
