@@ -304,6 +304,7 @@ docs/
   safety-boundaries.md
   synthetic-personas.md
   validation-plan.md
+  v1-release-notes.md
 ```
 
 ---
@@ -322,6 +323,7 @@ Project documentation:
 * [Synthetic personas](docs/synthetic-personas.md)
 * [Validation plan](docs/validation-plan.md)
 * [Roadmap](docs/roadmap.md)
+* [v1.0 release notes](docs/v1-release-notes.md)
 
 ---
 
