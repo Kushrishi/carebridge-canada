@@ -19,6 +19,23 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('provides a skip link to the main content', () => {
+    render(<App />);
+
+    const skipLink = screen.getByRole('link', {
+      name: /skip to main content/i,
+    });
+
+    expect(skipLink).toHaveAttribute('href', '#main-content');
+
+    expect(screen.getByRole('main')).toBeInTheDocument();
+
+    const mainContent = document.querySelector('#main-content');
+
+    expect(mainContent).toBeInTheDocument();
+    expect(mainContent).toHaveAttribute('tabindex', '-1');
+  });
+
   it('opens the appointment preparation section from the hero action', async () => {
     const user = userEvent.setup();
 

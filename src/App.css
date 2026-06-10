@@ -1261,3 +1261,66 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: white;
+  background: #17324c;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(8, 23, 42, 0.22);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid rgba(89, 194, 179, 0.7);
+  outline-offset: 3px;
+}
+
+.main-content:focus {
+  outline: none;
+}
+
+button,
+select,
+textarea,
+a {
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(89, 194, 179, 0.7);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}

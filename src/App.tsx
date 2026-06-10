@@ -21,103 +21,112 @@ function App() {
   const openTaskCount = countOpenTasks(demoCarePassport.followUpTasks);
 
   return (
-    <main className="app-shell">
-      <section className="hero-card">
-        <p className="eyebrow">CareBridge Canada</p>
-        <h1>Never lose the thread of your care.</h1>
-        <p className="hero-copy">
-          A patient-owned healthcare continuity layer that turns appointments,
-          instructions, referrals, medications, labs, symptoms, and family
-          questions into a living action plan.
-        </p>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
 
-        <div className="hero-actions" aria-label="Primary actions">
-          <button type="button" onClick={() => setActiveView('before')}>
-            Prepare for a visit
-          </button>
-          <button
-            type="button"
-            className="secondary-button"
-            onClick={() => setActiveView('passport')}
-          >
-            View Care Passport
-          </button>
-        </div>
-      </section>
+      <main className="app-shell">
+        <section className="hero-card">
+          <p className="eyebrow">CareBridge Canada</p>
+          <h1>Never lose the thread of your care.</h1>
+          <p className="hero-copy">
+            A patient-owned healthcare continuity layer that turns appointments,
+            instructions, referrals, medications, labs, symptoms, and family
+            questions into a living action plan.
+          </p>
 
-      <AppNavigation activeView={activeView} onViewChange={setActiveView} />
-
-      {activeView === 'overview' && (
-        <OverviewSection
-          careGapCount={careGaps.length}
-          openTaskCount={openTaskCount}
-          onViewChange={setActiveView}
-        />
-      )}
-
-      {activeView === 'before' && <AppointmentPrep />}
-
-      {activeView === 'after' && <AfterVisitSummary />}
-
-      {activeView === 'family' && <FamilyTranslationMode />}
-
-      {activeView === 'province' && <ProvinceNavigator />}
-
-      {activeView === 'scenarios' && <SyntheticScenarioLibrary />}
-
-      {activeView === 'trust' && <TrustCenter />}
-
-      {activeView === 'timeline' && (
-        <CareTimeline
-          appointments={demoCarePassport.recentAppointments}
-          tasks={demoCarePassport.followUpTasks}
-        />
-      )}
-
-      {activeView === 'follow-up' && (
-        <section className="dashboard-section">
-          <div>
-            <p className="eyebrow">Care Gap Radar</p>
-            <h2>
-              {careGaps.length} care gap flagged · {openTaskCount} open tasks
-            </h2>
-            <p>
-              CareBridge flags unfinished loops. It does not diagnose, treat,
-              approve prescriptions, or replace clinical judgment.
-            </p>
-
-            <div className="care-gap-list">
-              {careGaps.map((gap) => (
-                <article className="care-gap-card" key={gap.id}>
-                  <h3>{gap.title}</h3>
-                  <p>{gap.explanation}</p>
-                  <span>{gap.safePrompt}</span>
-                </article>
-              ))}
-            </div>
+          <div className="hero-actions" aria-label="Primary actions">
+            <button type="button" onClick={() => setActiveView('before')}>
+              Prepare for a visit
+            </button>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setActiveView('passport')}
+            >
+              View Care Passport
+            </button>
           </div>
-
-          <FollowUpTracker tasks={demoCarePassport.followUpTasks} />
         </section>
-      )}
 
-      {activeView === 'passport' && (
-        <>
-          <CarePassportSummary carePassport={demoCarePassport} />
-          <ExportReadyPassport />
-        </>
-      )}
+        <AppNavigation activeView={activeView} onViewChange={setActiveView} />
 
-      <section className="safety-card">
-        <h2>Safety principle</h2>
-        <p>
-          CareBridge supports understanding, preparation, communication, and
-          follow-up. It does not diagnose, treat, approve prescriptions, provide
-          emergency triage, or replace doctors, nurses, pharmacists, clinics,
-          hospitals, or provincial health systems.
-        </p>
-      </section>
-    </main>
+        <div id="main-content" className="main-content" tabIndex={-1}>
+          {activeView === 'overview' && (
+            <OverviewSection
+              careGapCount={careGaps.length}
+              openTaskCount={openTaskCount}
+              onViewChange={setActiveView}
+            />
+          )}
+
+          {activeView === 'before' && <AppointmentPrep />}
+
+          {activeView === 'after' && <AfterVisitSummary />}
+
+          {activeView === 'family' && <FamilyTranslationMode />}
+
+          {activeView === 'province' && <ProvinceNavigator />}
+
+          {activeView === 'scenarios' && <SyntheticScenarioLibrary />}
+
+          {activeView === 'trust' && <TrustCenter />}
+
+          {activeView === 'timeline' && (
+            <CareTimeline
+              appointments={demoCarePassport.recentAppointments}
+              tasks={demoCarePassport.followUpTasks}
+            />
+          )}
+
+          {activeView === 'follow-up' && (
+            <section className="dashboard-section">
+              <div>
+                <p className="eyebrow">Care Gap Radar</p>
+                <h2>
+                  {careGaps.length} care gap flagged · {openTaskCount} open tasks
+                </h2>
+                <p>
+                  CareBridge flags unfinished loops. It does not diagnose, treat,
+                  approve prescriptions, or replace clinical judgment.
+                </p>
+
+                <div className="care-gap-list">
+                  {careGaps.map((gap) => (
+                    <article className="care-gap-card" key={gap.id}>
+                      <h3>{gap.title}</h3>
+                      <p>{gap.explanation}</p>
+                      <span>{gap.safePrompt}</span>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              <FollowUpTracker tasks={demoCarePassport.followUpTasks} />
+            </section>
+          )}
+
+          {activeView === 'passport' && (
+            <>
+              <CarePassportSummary carePassport={demoCarePassport} />
+              <ExportReadyPassport />
+            </>
+          )}
+
+        </div>
+
+        <section className="safety-card">
+          <h2>Safety principle</h2>
+          <p>
+            CareBridge supports understanding, preparation, communication, and
+            follow-up. It does not diagnose, treat, approve prescriptions, provide
+            emergency triage, or replace doctors, nurses, pharmacists, clinics,
+            hospitals, or provincial health systems.
+          </p>
+        </section>
+      </main>
+    </>
   );
 }
 
@@ -232,7 +241,7 @@ function OverviewSection({
             Open scenarios
           </button>
         </article>
-                <article>
+        <article>
           <p className="eyebrow">Trust and safety</p>
           <h2>Safety boundaries visible</h2>
           <p>
