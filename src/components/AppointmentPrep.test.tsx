@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AppointmentPrep } from './AppointmentPrep';
 
@@ -33,8 +33,14 @@ describe('AppointmentPrep', () => {
       }),
     );
 
+    const generatedSummary = screen.getByLabelText(
+      /generated appointment preparation summary/i,
+    );
+
     expect(
-      screen.getByText(/new dizziness after medication change/i),
+      within(generatedSummary).getByText(
+        /my main concern is new dizziness after medication change/i,
+      ),
     ).toBeInTheDocument();
   });
 

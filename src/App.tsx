@@ -4,6 +4,7 @@ import { FollowUpTracker } from './components/FollowUpTracker';
 import { demoCarePassport } from './data/demoCareGraph';
 import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 import { AppointmentPrep } from './components/AppointmentPrep';
+import { AfterVisitSummary } from './components/AfterVisitSummary';
 
 function App() {
   const careGaps = createCareGaps(demoCarePassport.followUpTasks);
@@ -67,6 +68,8 @@ function App() {
       </section>
 
       <AppointmentPrep />
+
+      <AfterVisitSummary />
 
       <CareTimeline
         appointments={demoCarePassport.recentAppointments}
