@@ -19,6 +19,18 @@ describe('CareBridge Canada app shell', () => {
     ).toBeInTheDocument();
   });
 
+  it('shows summary generation transparency on the overview page', () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole('heading', {
+        name: /how summaries are generated/i,
+      }),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText(/deterministic rules/i)).toBeInTheDocument();
+  });
+
   it('provides a skip link to the main content', () => {
     render(<App />);
 

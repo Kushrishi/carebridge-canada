@@ -15,6 +15,7 @@ import { ExportReadyPassport } from './components/ExportReadyPassport';
 import { SyntheticScenarioLibrary } from './components/SyntheticScenarioLibrary';
 import { TrustCenter } from './components/TrustCenter';
 import { CopyReadyCaregiverMessage } from './components/CopyReadyCaregiverMessage';
+import { SummaryGenerationExplainer } from './components/SummaryGenerationExplainer';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -255,6 +256,8 @@ function OverviewSection({
           </button>
         </article>
       </section>
+
+      <SummaryGenerationExplainer />
     </>
   );
 }
