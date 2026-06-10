@@ -13,6 +13,7 @@ import { countOpenTasks, createCareGaps } from './utils/careGapRadar';
 import { ProvinceNavigator } from './components/ProvinceNavigator';
 import { ExportReadyPassport } from './components/ExportReadyPassport';
 import { SyntheticScenarioLibrary } from './components/SyntheticScenarioLibrary';
+import { TrustCenter } from './components/TrustCenter';
 
 function App() {
   const [activeView, setActiveView] = useState<AppView>('overview');
@@ -63,6 +64,8 @@ function App() {
       {activeView === 'province' && <ProvinceNavigator />}
 
       {activeView === 'scenarios' && <SyntheticScenarioLibrary />}
+
+      {activeView === 'trust' && <TrustCenter />}
 
       {activeView === 'timeline' && (
         <CareTimeline
@@ -217,7 +220,7 @@ function OverviewSection({
             Open province guide
           </button>
         </article>
-        
+
         <article>
           <p className="eyebrow">Synthetic validation</p>
           <h2>Scenario library added</h2>
@@ -227,6 +230,17 @@ function OverviewSection({
           </p>
           <button type="button" onClick={() => onViewChange('scenarios')}>
             Open scenarios
+          </button>
+        </article>
+                <article>
+          <p className="eyebrow">Trust and safety</p>
+          <h2>Safety boundaries visible</h2>
+          <p>
+            Show how the MVP protects users by avoiding diagnosis, avoiding real
+            patient data, and clearly separating support from clinical advice.
+          </p>
+          <button type="button" onClick={() => onViewChange('trust')}>
+            Open trust center
           </button>
         </article>
       </section>

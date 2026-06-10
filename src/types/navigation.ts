@@ -5,6 +5,7 @@ export type AppView =
   | 'family'
   | 'province'
   | 'scenarios'
+  | 'trust'
   | 'timeline'
   | 'follow-up'
   | 'passport';

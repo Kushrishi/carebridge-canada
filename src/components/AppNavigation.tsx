@@ -46,6 +46,12 @@ const appViews: AppViewConfig[] = [
   },
 
   {
+    id: 'trust',
+    label: 'Trust center',
+    description: 'Privacy, safety, and MVP boundaries',
+  },
+
+  {
     id: 'timeline',
     label: 'Action Graph',
     description: 'Connected appointments and care tasks',
