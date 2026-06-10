@@ -44,4 +44,25 @@ describe('ExportReadyPassport', () => {
 
     expect(screen.getByText(/copied to clipboard/i)).toBeInTheDocument();
   });
+
+  it('prints the Care Passport', async () => {
+    const print = vi.fn();
+
+    Object.defineProperty(window, 'print', {
+      value: print,
+      configurable: true,
+    });
+
+    const user = userEvent.setup();
+
+    render(<ExportReadyPassport />);
+
+    await user.click(
+      screen.getByRole('button', {
+        name: /print care passport/i,
+      }),
+    );
+
+    expect(print).toHaveBeenCalled();
+  });
 });

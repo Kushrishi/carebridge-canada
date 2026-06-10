@@ -48,9 +48,15 @@ export function ExportReadyPassport() {
             <li>Keeps safety boundaries visible.</li>
           </ul>
 
-          <button type="button" onClick={handleCopy}>
-            Copy Care Passport
-          </button>
+          <div className="export-actions">
+            <button type="button" onClick={handleCopy}>
+              Copy Care Passport
+            </button>
+
+            <button type="button" className="secondary-button" onClick={() => window.print()}>
+              Print Care Passport
+            </button>
+          </div>
 
           {copyStatus === 'copied' && (
             <p className="copy-status">Copied to clipboard.</p>

@@ -826,7 +826,6 @@ button {
 }
 
 @media (max-width: 820px) {
-
   .passport-header-card,
   .export-placeholder-card {
     grid-template-columns: 1fr;
@@ -871,7 +870,7 @@ button {
   top: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 10px;
   margin: 18px 0 24px;
   padding: 12px;
@@ -952,7 +951,7 @@ button {
 
 @media (max-width: 1060px) {
   .app-navigation {
-    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .overview-dashboard {
@@ -1069,6 +1068,34 @@ button {
   white-space: pre-wrap;
 }
 
+.export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.export-actions button,
+.export-actions .secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  color: #17324c;
+  background: white;
+  border: 0;
+  box-shadow: none;
+}
+
+.export-actions button:hover,
+.export-actions button:focus-visible,
+.export-actions .secondary-button:hover,
+.export-actions .secondary-button:focus-visible {
+  color: white;
+  background: #17324c;
+  border: 0;
+}
+
 .copy-status {
   margin-top: 8px;
   color: #1d6f61;
@@ -1080,8 +1107,7 @@ button {
 }
 
 @media print {
-
-  .hero,
+  .hero-card,
   .app-navigation,
   .safety-card,
   .summary-card--primary button,
