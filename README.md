@@ -2,7 +2,7 @@
 
 ![CareBridge Canada CI](https://github.com/Kushrishi/carebridge-canada/actions/workflows/ci.yml/badge.svg)
 
-**Live demo:** GitHub Pages deployment in progress.
+**Live demo:** https://kushrishi.github.io/carebridge-canada/
 
 **Never lose the thread of your care.**
 
