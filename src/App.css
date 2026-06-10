@@ -633,3 +633,71 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.family-translation-section {
+  margin-bottom: 24px;
+  padding: 28px;
+  border: 1px solid #dbe7ef;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 45px rgba(8, 23, 42, 0.07);
+}
+
+.family-translation-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.family-form {
+  display: grid;
+  gap: 14px;
+}
+
+.family-form label {
+  display: grid;
+  gap: 8px;
+  color: #17324c;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.family-form select,
+.family-form textarea {
+  width: 100%;
+  border: 1px solid #d6e5ef;
+  border-radius: 16px;
+  padding: 12px 13px;
+  color: #14283c;
+  background: #f8fbfd;
+  font: inherit;
+  font-weight: 500;
+}
+
+.family-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.family-form select:focus,
+.family-form textarea:focus {
+  outline: 3px solid rgba(89, 194, 179, 0.24);
+  border-color: #59c2b3;
+}
+
+.family-output {
+  display: grid;
+  gap: 12px;
+}
+
+.translated-card {
+  border-color: #cfe8ff;
+  background: #f4faff;
+}
+
+@media (max-width: 820px) {
+  .family-translation-grid {
+    grid-template-columns: 1fr;
+  }
+}
