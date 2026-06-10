@@ -1,0 +1,18 @@
+{
+    "name": "CareBridge Canada",
+    "short_name": "CareBridge",
+    "description": "A patient-owned healthcare continuity app that helps Canadians prepare for appointments, understand instructions, track follow-ups, translate care plans, and generate clinician-ready summaries.",
+    "start_url": "/carebridge-canada/",
+    "scope": "/carebridge-canada/",
+    "display": "standalone",
+    "background_color": "#EEF5F8",
+    "theme_color": "#17324C",
+    "icons": [
+        {
+            "src": "carebridge-icon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
