@@ -821,10 +821,15 @@ button {
   margin-bottom: 0;
 }
 
-.export-placeholder-card button {
+.export-status-pill {
   flex-shrink: 0;
-  color: white;
-  background: #17324c;
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: #17324c;
+  background: #e7f2fb;
+  font-size: 0.84rem;
+  font-weight: 850;
+  white-space: nowrap;
 }
 
 @media (max-width: 980px) {
