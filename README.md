@@ -35,6 +35,20 @@ The MVP does not use real patient data, real provincial portal data, a backend, 
 
 ---
 
+## Project Ecosystem
+
+This public repository is the CareBridge Canada concept demo.
+
+It demonstrates the product vision through a React + TypeScript frontend, synthetic care scenarios, appointment preparation, after-visit summaries, caregiver support, province-aware guidance, Care Gap Radar, Care Passport handoffs, copy/export workflows, documentation, CI/CD, and a v1.0.0 public release.
+
+A separate private full-stack startup lab was also built to explore the deeper system architecture behind the concept, including FastAPI backend workflows, SQLite persistence, SQLAlchemy models, deterministic source-grounded retrieval, synthetic source notes, audit trails, follow-up task workflows, care packet generation, backend-only AI provider safety controls, language-first UX, technical workspace gating, and post-V7 roadmap planning.
+
+The public demo shows the product vision. The private startup lab proves the deeper system architecture.
+
+CareBridge remains synthetic-only and is not an AI doctor, diagnosis app, symptom checker, prescription tool, treatment recommendation system, emergency triage system, regulated medical device, or replacement for licensed healthcare professionals or provincial health portals.
+
+---
+
 ## Screenshots
 
 ### Overview dashboard
@@ -278,7 +292,7 @@ CareBridge focuses on continuity problems such as:
 
 ## Technical stack
 
-Current implementation:
+Current public implementation:
 
 * React
 * TypeScript
@@ -288,18 +302,19 @@ Current implementation:
 * GitHub Actions CI
 * GitHub Pages deployment
 
-Potential future architecture:
+Potential future production architecture:
 
-* FastAPI or Node/Express backend
-* PostgreSQL persistence
-* authentication and consent model
-* encrypted storage
+* authenticated backend
+* encrypted database
+* consent and caregiver-sharing model
 * audit logs
-* rules engine
 * source-grounded AI/RAG over patient-owned notes
-* PDF export
+* rules engine and safety review pipeline
+* PDF and patient-owned data export
 * PWA/mobile support
-* privacy and security review before real patient data
+* privacy, security, and legal review before real patient data
+
+A separate private full-stack startup lab has already explored a synthetic version of the deeper architecture using FastAPI, SQLite, SQLAlchemy, source-grounded retrieval, audit trails, backend-only AI provider controls, runtime safety visibility, and synthetic-data-only workflows.
 
 ---
 
@@ -422,25 +437,40 @@ The product should not start as a diagnosis app, symptom checker, treatment engi
 
 ## Roadmap
 
-Near-term project milestones:
+Near-term public demo milestones:
 
 1. Continue mobile and accessibility polish
 2. Improve visual polish for future “coming soon” states
-3. Explore a full-stack synthetic backend prototype
-4. Prototype source-grounded AI/RAG using synthetic notes only
-5. Prepare for lightweight user discovery and startup validation
+3. Keep the public demo focused on product vision, safety boundaries, and synthetic examples
+4. Prepare for lightweight user discovery and startup validation
+5. Keep the public repository separate from the private full-stack startup lab
+
+Private full-stack lab milestones already explored:
+
+1. Synthetic FastAPI backend prototype
+2. SQLite and SQLAlchemy persistence
+3. Source note and source chunk workflows
+4. Deterministic source-grounded retrieval
+5. Ask CareBridge interaction history
+6. Audit trails
+7. Care gap detection
+8. Care packet generation
+9. Backend-only AI provider architecture
+10. Runtime provider safety controls
+11. Language-first and low-literacy UX experiments
+12. Post-V7 roadmap planning
 
 Future startup-oriented milestones:
 
-1. Full-stack synthetic backend prototype
-2. Secure authentication and consent model
-3. Encrypted database design
-4. Audit logs
-5. Source-grounded AI/RAG prototype using synthetic notes only
-6. PDF export and patient-owned data export
-7. Privacy/security/legal review before any real patient data
-8. Lightweight user discovery and prototype testing
-9. Closed alpha only after compliance and safety foundations are ready
+1. Secure authentication and consent model
+2. Encrypted production database design
+3. Source document upload foundation
+4. Production-grade source-grounded AI/RAG pipeline
+5. PDF export and patient-owned data export
+6. Privacy/security/legal review before any real patient data
+7. Lightweight user discovery and prototype testing
+8. Closed alpha only after compliance and safety foundations are ready
+9. Mobile/PWA planning after the product workflow is validated
 
 ---
 
