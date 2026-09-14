@@ -4,7 +4,7 @@
 
 The original public-demo roadmap is complete.
 
-The `carebridge-canada` repository now serves as a stable, synthetic product concept and portfolio artifact. It should not keep accumulating features simply to make the demo larger.
+The `carebridge-canada` repository now serves as a stable, synthetic product concept and public technical demonstration. It should not keep accumulating features simply to make the demo larger.
 
 The deeper full-stack and AI-system work is intentionally separated into a private startup lab.
 
