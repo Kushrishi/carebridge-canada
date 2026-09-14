@@ -1,179 +1,88 @@
-# Development Roadmap
+# CareBridge Canada — Public Roadmap
 
-## Phase 0: Planning
+## Status
 
-Create:
+The original public-demo roadmap is complete.
 
-- README
-- problem statement
-- product thesis
-- safety boundaries
-- Action Graph concept
-- privacy and data principles
-- synthetic personas
-- validation plan
-- roadmap
+The `carebridge-canada` repository now serves as a stable, synthetic product concept and portfolio artifact. It should not keep accumulating features simply to make the demo larger.
 
-Commit:
+The deeper full-stack and AI-system work is intentionally separated into a private startup lab.
 
-Initialize CareBridge Canada project plan
+## Completed public-demo milestones
 
-## Phase 1: Frontend skeleton
+The public v1.0 demo established:
 
-Create:
+- React + TypeScript + Vite application shell
+- synthetic care scenarios
+- appointment preparation
+- after-visit organization
+- follow-up tracking
+- evidence traces
+- caregiver-oriented summaries
+- province-aware preparation guidance
+- Care Passport handoffs
+- deterministic safety rules
+- automated tests and CI
+- deployed GitHub Pages demo
 
-- React + TypeScript + Vite app
-- mobile-first layout
-- dashboard
-- navigation
-- sample data
-- basic tests
+These features are considered complete enough for the public concept demo.
 
-Commit:
+## Current technical direction
 
-Initialize CareBridge Canada frontend
+Current engineering work is happening in the private prototype, not this repository.
 
-## Phase 2: Care timeline and task tracker
+The next bounded technical question is whether model-directed routing can use a small set of typed, deterministic continuity tools while preserving:
 
-Add:
+- valid tool arguments;
+- provenance;
+- grounding;
+- explicit safety boundaries;
+- deterministic backend execution;
+- auditable failure behavior; and
+- measurable latency/cost.
 
-- care timeline
-- follow-up task cards
-- task status
-- sample appointments
-- sample referrals/labs
+The public repository should only be updated when a completed private milestone produces evidence worth communicating publicly.
 
-Commit:
+## Current product direction
 
-Add care timeline and follow-up tracker
+The broad continuity problem remains the product thesis, but the commercial wedge is intentionally **not frozen**.
 
-## Phase 3: Appointment prep
+The project should not assume that the first customer is a direct-to-consumer patient user or that after-visit summaries are sufficient differentiation.
 
-Add form:
+Customer discovery should test which continuity failures are:
 
-- main concern
-- symptom timeline
-- medications
-- questions
-- appointment type
+- frequent;
+- operationally painful;
+- poorly handled by existing systems;
+- measurable; and
+- owned by a buyer with budget and motivation to improve them.
 
-Generate structured summary using deterministic/mock logic first.
+A leading hypothesis to investigate is provider-funded, B2B2C closed-loop referral/follow-up work, but this is a hypothesis rather than a committed roadmap.
 
-Commit:
+## Explicit non-goals for the next phase
 
-Add appointment preparation workflow
+Do not add to the public demo merely for breadth.
 
-## Phase 4: After-visit summary
+The next phase does **not** require:
 
-Add:
+- real patient data;
+- production EHR or provincial-portal integrations;
+- diagnosis, treatment, prescription, or triage features;
+- a generic healthcare chatbot;
+- autonomous external actions;
+- a mobile app;
+- a multi-agent framework;
+- microservices or Kubernetes;
+- a vector database without evidence that one is needed; or
+- another UI redesign.
 
-- paste instructions
-- extract tasks
-- plain-English summary
-- questions to ask
-- evidence cards
+## Update rule
 
-Use mock AI first.
+The public demo should remain stable until one of the following creates a real reason to update it:
 
-Commit:
+1. a completed and evaluated private technical milestone;
+2. customer discovery identifies a materially different product wedge;
+3. a real interoperability/integration experiment becomes justified; or
+4. the project is frozen or redirected based on evidence.
 
-Add after-visit summary workflow
-
-## Phase 5: Family translation mode
-
-Add:
-
-- plain English summary
-- translated family checklist
-- language selector
-- original text side-by-side
-
-Commit:
-
-Add family translation mode
-
-## Phase 6: Care Passport
-
-Add:
-
-- doctor summary
-- pharmacist summary
-- family summary
-- what changed since last visit
-- export-ready layout
-
-Commit:
-
-Add Care Passport summary
-
-## Phase 7: AI integration
-
-Add:
-
-- LLM summarization
-- task extraction
-- question generation
-- translation support
-- safety disclaimers
-- evidence cards
-
-Commit:
-
-Add AI-assisted care summaries
-
-## Phase 8: RAG and province-aware guidance
-
-Add:
-
-- province-specific guidance files
-- retrieval layer
-- source-grounded outputs
-- province checklist
-
-Commit:
-
-Add province-aware care guidance
-
-## Phase 9: Backend and database
-
-Add:
-
-- FastAPI backend
-- SQLite first
-- PostgreSQL later
-- API routes
-- validation models
-- auth planning
-
-Commit:
-
-Add backend data model foundation
-
-## Phase 10: Testing and polish
-
-Add:
-
-- Vitest tests
-- backend tests later
-- sample data tests
-- task extraction tests
-- build checks
-- GitHub Actions CI
-- README screenshots/GIF
-
-Commit:
-
-Add validation tests and project documentation
-
-## Long-term direction
-
-Future versions may include:
-
-- encrypted accounts
-- caregiver permissions
-- PDF export
-- QR summary sharing
-- iOS and Android app
-- consent-based visit recording
-- speech-to-text transcript processing
-- official integrations if legally and technically possible
+The goal is to accumulate **technical or customer evidence**, not version numbers.
