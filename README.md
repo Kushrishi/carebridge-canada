@@ -46,7 +46,7 @@ The two repositories are deliberately separate:
 | Deterministic logic | Retrieval, provider abstractions, audit trails |
 | No backend or database | SQLite/SQLAlchemy persistence |
 | No active external AI | Backend-only gated model path |
-| Product concept and portfolio evidence | Architecture and evaluation work |
+| Product concept and public technical evidence | Architecture and evaluation work |
 
 The private prototype **explores and tests** the architecture; it is not presented as production validation or clinical evidence.
 
@@ -194,7 +194,7 @@ More detailed product and engineering notes live under `docs/`:
 
 ## Current direction
 
-CareBridge is currently a **portfolio-grade product prototype and startup hypothesis**, not a launched healthcare product.
+CareBridge is currently a **synthetic product prototype and startup hypothesis**, not a launched healthcare product.
 
 The next technical work is happening in the private prototype and is focused on evaluating bounded, source-grounded tool use rather than adding more public-demo features. The broader startup thesis remains intentionally unfrozen while customer discovery tests which continuity problems are frequent, costly, and poorly served by existing workflows.
 
@@ -206,6 +206,6 @@ The public repository should remain stable unless a future technical result mate
 
 Copyright © 2026 Kush Rishi. All rights reserved.
 
-This repository is published as a portfolio and product-concept demonstration. No license is granted for copying, distributing, modifying, sublicensing, or commercializing the code, documentation, branding, design, or written materials without permission.
+This repository is published as a product-concept and technical demonstration. No license is granted for copying, distributing, modifying, sublicensing, or commercializing the code, documentation, branding, design, or written materials without permission.
 
 CareBridge Canada is a software prototype for healthcare continuity, organization, and communication support. It is not a medical device, diagnostic tool, treatment tool, prescription tool, emergency-triage system, or substitute for professional medical advice.
