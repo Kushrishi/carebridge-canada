@@ -1,69 +1,140 @@
-# Validation Plan
+# CareBridge Canada — Validation Plan
 
-CareBridge should be validated as a real healthcare-impact product, not only as a software demo.
+CareBridge should be validated as both a **technical system** and a **startup hypothesis**. A polished demo is not evidence that the product is useful, and broad evidence that healthcare continuity is difficult is not evidence that CareBridge has found the right customer or workflow.
 
-## Early validation goals
+## 1. Product-discovery objective
 
-The first validation goal is to understand whether CareBridge solves a real patient communication and follow-up problem.
+The immediate product question is:
 
-## People to interview
+> **Which non-clinical continuity failure happens often enough, hurts enough, and has a clear enough owner/buyer to justify a product?**
 
-Target interviews:
+The current commercial wedge is intentionally not frozen.
 
-- 5 patients or family caregivers
-- 2 pharmacists
-- 2 nurses
-- 1 doctor, resident, or medical student
-- immigrant family members if possible
+A leading hypothesis to test is provider-funded, B2B2C closed-loop referral/follow-up work, but discovery should be allowed to reject that hypothesis.
 
-## Patient and caregiver questions
+## 2. Interview target
 
-Ask:
+Aim for roughly **15–20 high-quality conversations** before making a major product pivot.
 
-- What do you usually forget after healthcare appointments?
-- What instructions are hardest to understand?
-- What follow-ups are easiest to miss?
-- Do you track referrals, labs, imaging, or medications anywhere?
-- Would a doctor-ready summary help you?
-- Would a translated family checklist help?
-- What would make this app trustworthy?
-- What would make this app untrustworthy?
+Suggested mix:
 
-## Pharmacist questions
+- **5–7 operational users** — clinic managers, medical office assistants, referral coordinators, care coordinators, discharge/follow-up staff;
+- **4–6 patients or family caregivers** who have experienced multi-step or fragmented care; and
+- **4–6 clinical users** — physicians, nurses, pharmacists, or other professionals who see continuity failures in practice.
 
-Ask:
+Operational users are especially important because they can reveal where staff time, handoffs, status calls, and failed loops create measurable cost.
 
-- What medication instructions do patients commonly misunderstand?
-- Would a patient-generated medication question list help?
-- What information should patients bring to the pharmacy?
-- What should this app avoid doing?
+## 3. Interview method
 
-## Nurse and discharge questions
+Do **not** begin by pitching CareBridge or asking whether an AI assistant sounds useful.
 
-Ask:
+Prefer concrete recent examples:
 
-- What discharge or after-visit instructions are commonly misunderstood?
-- What follow-up items do patients miss?
-- Would plain-language checklists help?
-- What safety wording is important?
+- Tell me about the last referral that did not go smoothly.
+- What happens after a referral is sent?
+- How do you know the patient was actually scheduled?
+- Who notices if nobody follows up?
+- What happens when a result needs follow-up?
+- Which system is supposed to track that?
+- What work still happens through phone, fax, inboxes, spreadsheets, or manual reminders?
+- How often does that happen?
+- Who spends time fixing it?
+- What happens if the loop is never closed?
+- What existing product is supposed to solve this?
+- Why does that product or workflow still fail?
+- What would you never allow software to do automatically?
+- Who would need to approve a new tool?
+- Who would actually pay for it?
 
-## Doctor/resident/medical student questions
+For patients/caregivers, ask for recent workflows rather than preferences:
 
-Ask:
+- Walk me through what happened after your last specialist, hospital, or clinic visit.
+- What did you have to remember or chase yourself?
+- How did you know what was still pending?
+- Who helped you keep track of it?
+- What information was missing or difficult to understand?
+- What tools did you actually use: portal, notes app, paper, messages, calendar, phone calls?
 
-- Would a 30-second patient summary help?
-- What information should be included?
-- What information would be noise?
-- What would make this kind of summary clinically useful?
-- What safety boundaries are necessary?
+## 4. Evidence to capture
 
-## North Star validation metrics
+For every recurring problem, record:
 
-Possible metrics:
+- **frequency** — how often it occurs;
+- **severity** — what happens when it fails;
+- **existing work** — what people already do to manage it;
+- **workflow owner** — who is responsible for closing the loop;
+- **buyer** — who has budget or authority;
+- **existing alternatives** — software/processes already used;
+- **switching friction** — integration, training, compliance, procurement;
+- **measurable outcome** — what would improve if the problem were solved.
 
-- user feels more prepared for appointment
-- user remembers more questions
-- user understands instructions better
-- follow-up tasks are completed
-- family/caregiver understands care plan
-- clinician/pharmacist receives clearer information
+Avoid treating enthusiasm as validation.
+
+## 5. Continue / pivot / freeze criteria
+
+### Continue a startup direction when
+
+A recurring workflow failure appears across independent interviews, someone clearly owns the work, the current solution is inadequate, and there is a measurable outcome that matters to a plausible buyer.
+
+### Pivot when
+
+The continuity problem is real but the original user, buyer, or workflow is wrong.
+
+For example, patients may value the concept while clinics bear most of the operational cost. That would support testing a B2B2C model rather than forcing a direct-to-consumer product.
+
+### Freeze the startup thesis when
+
+After a reasonable discovery set, pain is mostly anecdotal, existing tools solve it adequately, no buyer cares enough to change workflow, or the only viable value proposition requires crossing into high-risk clinical decision-making.
+
+CareBridge can still remain useful engineering evidence even if the startup thesis is frozen.
+
+## 6. Candidate business metrics
+
+Do not optimize around vanity metrics such as chatbot conversations or time spent in the app.
+
+If a provider-side wedge is validated, useful outcomes may include:
+
+- follow-up completion rate;
+- unresolved referral rate;
+- time from referral/order to next completed step;
+- staff touches per patient/case;
+- inbound status calls/messages;
+- no-show recovery;
+- percentage of open loops with a known owner/status; and
+- manual coordination time.
+
+The correct metric depends on the validated workflow.
+
+## 7. Technical validation
+
+The private prototype has a separate technical milestone: bounded model-directed tool use.
+
+Technical evaluation should compare model-directed routing with a deterministic baseline and measure at least:
+
+- correct tool selection;
+- correct no-tool behavior;
+- schema-valid arguments;
+- invented/nonexistent tool rate;
+- unsafe-action rate;
+- evidence retrieval/fidelity;
+- grounded final claims;
+- deterministic error handling;
+- latency; and
+- model/token cost.
+
+Technical success does not validate the business. Business discovery does not validate model reliability. Keep the two evidence streams separate.
+
+## 8. Data boundary
+
+Discovery interviews should not be used as a reason to collect real medical records or PHI into the prototype.
+
+Do not ask interviewees to upload private records, prescriptions, lab results, or identifying clinical data. The current engineering environments remain synthetic-only until privacy, legal, security, and product requirements justify a separate real-data phase.
+
+## 9. Decision rule
+
+Every meaningful CareBridge phase should produce at least one of:
+
+1. **new technical evidence**, or
+2. **new customer/workflow evidence**.
+
+If a proposed task produces neither, it is probably not the next thing to build.
