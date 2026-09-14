@@ -2,7 +2,7 @@
   "name": "carebridge-canada",
   "private": true,
   "version": "1.0.0",
-  "description": "A patient-owned healthcare continuity app that helps Canadians prepare for appointments, understand instructions, track follow-ups, translate care plans, and generate clinician-ready summaries.",
+  "description": "Synthetic healthcare-continuity prototype for appointment preparation, follow-up tracking, evidence traces, caregiver support, and care handoffs.",
   "type": "module",
   "scripts": {
     "dev": "vite",
